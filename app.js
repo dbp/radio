@@ -9,7 +9,7 @@ function getStation(position) {
   $.get("http://nominatim.openstreetmap.org/reverse?format=json&lat=" + lat + "&lon=" + lon, {}, function (resp) {
     var zip = resp.address.postcode;
 
-    var iframe = $("<iframe height=800 src='" + "http://radio-locator.com/cgi-bin/vacant?city=" + zip + "'></iframe>");
+    var iframe = $("<iframe style='border: 0; margin: 0 auto;' width=400 height=800 src='" + "http://radio-locator.com/cgi-bin/vacant?city=" + zip + "'></iframe>");
     $("body").children().remove();
     $("body").append(iframe);
   });
