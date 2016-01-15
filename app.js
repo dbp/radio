@@ -1,8 +1,16 @@
+var shouldrun = true;
+
 function run() {
+  window.setInterval(function() { shouldrun = true; }, 300000);
   navigator.geolocation.watchPosition(getStation);
 }
 
 function getStation(position) {
+  if (!shouldrun) {
+    return;
+  } else {
+    shouldrun = false;
+  }
   var lat = position.coords.latitude;
   var lon = position.coords.longitude;
 
